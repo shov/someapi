@@ -15,7 +15,7 @@ class RelateUsersTableWithRoles extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->integer('user_role_id')->unsigned();
-            $table->foreign('user_roles_id')->references('id')->on('user_roles');
+            $table->foreign('user_role_id')->references('id')->on('user_roles');
         });
     }
 
@@ -27,6 +27,7 @@ class RelateUsersTableWithRoles extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign('users_user_role_id_foreign');
             $table->dropColumn('user_role_id');
         });
     }
