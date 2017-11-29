@@ -32,7 +32,7 @@ trait ControllerHelper
             }
         }
 
-        return $this->makeResponse($status, $message);
+        return $this->makeResponse($status, $message, $e);
     }
 
     /**
@@ -104,9 +104,14 @@ trait ControllerHelper
      * @param null|string $message
      * @return Response
      */
-    protected function makeResponse(int $status, ?string $message): Response
+    protected function makeResponse(int $status, ?string $message, ?\Throwable $e = null): Response
     {
         if (App::environment('testing')) {
+
+            $logData = [$message, $status];
+            is_null($e) ?: $logData[] = $e->getTraceAsString();
+            Log::info($logData);
+
             return response()->json([
                 'message' => $message ?? '',
             ], $status);

@@ -30,7 +30,7 @@ STATUS 200
     token: string
 }
 
-STATUS 401
+STATUS 403
 Wrong credentials
 ```
 

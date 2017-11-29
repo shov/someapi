@@ -41,6 +41,17 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+$app->configureMonologUsing(function ($monolog) {
+    $streamHandler = new \Monolog\Handler\StreamHandler(
+        base_path('log') . '/debug.html', $monolog::DEBUG
+    );
+
+    $streamHandler->setFormatter(new \Monolog\Formatter\HtmlFormatter());
+
+    /** @var Monolog\Logger $monolog */
+    $monolog->pushHandler($streamHandler);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application

@@ -6,6 +6,23 @@ use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
 {
+    const USER_SEEDS = [
+        'ADMIN' => [
+            'name' => "Jim Doe",
+            'email' => "jim@some.com",
+            'password' => "qwerty12345",
+        ],
+        'EDITOR' => [
+            'name' => "Jerry Doe",
+            'email' => "jerry@some.com",
+            'password' => "24vfdb3bGG",
+        ],
+        'SUBSCRIBER' => [
+            'name' => "John Doe",
+            'email' => "john@some.com",
+            'password' => "jhgcujc42624",
+        ],
+    ];
     /**
      * Run the database seeds.
      *
@@ -14,23 +31,23 @@ class UserSeeder extends Seeder
     public function run()
     {
         $admin = AppMake::User();
-        $admin->name = "Jim Doe";
-        $admin->email = "jim@some.com";
-        $admin->password = bcrypt("qwerty12345");
+        $admin->name = self::USER_SEEDS['ADMIN']['name'];
+        $admin->email = self::USER_SEEDS['ADMIN']['email'];
+        $admin->password = bcrypt(self::USER_SEEDS['ADMIN']['password']);
         $admin->userRole()->associate(UserRoleService::admin());
         $admin->save();
 
         $editor = AppMake::User();
-        $editor->name = "Jerry Doe";
-        $editor->email = "jerry@some.com";
-        $editor->password = bcrypt("asdg1245");
+        $editor->name = self::USER_SEEDS['EDITOR']['name'];
+        $editor->email = self::USER_SEEDS['EDITOR']['email'];
+        $editor->password = bcrypt(self::USER_SEEDS['EDITOR']['password']);
         $editor->userRole()->associate(UserRoleService::editor());
         $editor->save();
 
         $subscriber = AppMake::User();
-        $subscriber->name = "John Doe";
-        $subscriber->email = "john@some.com";
-        $subscriber->password = bcrypt("vvcvzcv5657");
+        $subscriber->name = self::USER_SEEDS['SUBSCRIBER']['name'];
+        $subscriber->email = self::USER_SEEDS['SUBSCRIBER']['email'];
+        $subscriber->password = bcrypt(self::USER_SEEDS['SUBSCRIBER']['password']);
         $subscriber->userRole()->associate(UserRoleService::subscriber());
         $subscriber->save();
     }

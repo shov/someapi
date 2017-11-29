@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,3 +14,15 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::group(['prefix' => 'v1'], function () {
+    Route::group(['as' => 'user::'], function () {
+
+        Route::post('/login',
+            'AuthController@login')
+            ->name('login');
+
+        Route::post('/logout',
+            'AuthController@logout')
+            ->name('logout');
+    });
+});
