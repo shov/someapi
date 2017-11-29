@@ -42,7 +42,7 @@ class UpdateTest extends TestCase
         /** @var Post $postToUpdate */
         $postToUpdate = AppMake::Post()
             ->newQuery()
-            ->withHas('category', function ($q) {
+            ->whereHas('category', function ($q) {
                 $q->where('id', 1); //not 10 means
             })
             ->first();
