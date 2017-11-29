@@ -25,4 +25,52 @@ Route::group(['prefix' => 'v1'], function () {
             'AuthController@logout')
             ->name('logout');
     });
+
+    Route::group(['as' => 'post::'], function () {
+        Route::get('/posts',
+            'PostController@list')
+            ->name('list');
+
+        Route::get('/posts/{id}',
+            'PostController@get')
+            ->where('id', '\d+')
+            ->name('get');
+
+        Route::post('/posts/{id}',
+            'PostController@create')
+            ->where('id', '\d+')
+            ->name('create');
+
+        Route::put('/posts/{id}',
+            'PostController@update')
+            ->where('id', '\d+')
+            ->name('update');
+
+        Route::delete('/posts/{id}',
+            'PostController@delete')
+            ->where('id', '\d+')
+            ->name('delete');
+    });
+
+    Route::group(['as' => 'category::'], function () {
+        Route::get('/categories/{id}',
+            'CategoryController@get')
+            ->where('id', '\d+')
+            ->name('get');
+
+        Route::post('/categories/{id}',
+            'CategoryController@create')
+            ->where('id', '\d+')
+            ->name('create');
+
+        Route::put('/categories/{id}',
+            'CategoryController@update')
+            ->where('id', '\d+')
+            ->name('update');
+
+        Route::delete('/categories/{id}',
+            'CategoryController@delete')
+            ->where('id', '\d+')
+            ->name('delete');
+    });
 });

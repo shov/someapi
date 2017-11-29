@@ -27,16 +27,16 @@ class LogoutTest extends TestCase
         $responseLogout = $this->post(route('user::logout'), [], [
             'HTTP_Authorization' => 'Bearer ' . $token,
         ]);
-        /*$responseTryToGetAfterLogout = $this->get(route('post::get', ['id' => 1]), [
+        $responseTryToGetAfterLogout = $this->get(route('post::get', ['id' => 1]), [
             'HTTP_Authorization' => 'Bearer ' . $token,
-        ]);*/
+        ]);
         $responseTryLogoutAfterLogout = $this->post(route('user::logout'), [], [
             'HTTP_Authorization' => 'Bearer ' . $token,
         ]);
 
         //Assert
         $responseLogout->assertStatus(Response::HTTP_OK);
-        //$responseTryToGetAfterLogout->assertStatus(Response::HTTP_UNAUTHORIZED);
+        $responseTryToGetAfterLogout->assertStatus(Response::HTTP_UNAUTHORIZED);
         $responseTryLogoutAfterLogout->assertStatus(Response::HTTP_UNAUTHORIZED);
     }
 

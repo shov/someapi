@@ -25,7 +25,7 @@ class UserService
      * @return User|null
      * @throws ValidationException
      */
-    public function getUserByEmail(string $email): ?User
+    public function getUserByEmail(string $email): User
     {
         $this->validateArray(compact('email'), ['email' => 'email',]);
 
@@ -46,7 +46,12 @@ class UserService
 
         if (empty($id)) throw new UserAuthException("Have no authorized user");;
 
-        return AppMake::User()->find($id);
+        $user = AppMake::User()->find($id);
+        if(is_null($user)) {
+            throw new UserAuthException("Have no that user X(");
+        }
+
+        return $user;
     }
 
     /**
