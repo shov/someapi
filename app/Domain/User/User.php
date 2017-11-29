@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Domain\User;
 
+use App\Domain\UserRole\UserRole;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 

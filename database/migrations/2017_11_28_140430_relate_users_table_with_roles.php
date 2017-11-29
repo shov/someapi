@@ -14,7 +14,7 @@ class RelateUsersTableWithRoles extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->integer('user_role_id')->unsigned();
+            $table->integer('user_role_id')->unsigned()->default(0);
             $table->foreign('user_role_id')->references('id')->on('user_roles');
         });
     }

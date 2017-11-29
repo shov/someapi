@@ -1,11 +1,11 @@
 <?php declare(strict_types=1);
 
-namespace App;
+namespace App\Helpers;
 
-use App\Models\Category;
-use App\Models\Post;
-use App\Models\User;
-use App\Models\UserRole;
+use App\Domain\Category\Category;
+use App\Domain\Post\Post;
+use App\Domain\User\User;
+use App\Domain\UserRole\UserRole;
 use Illuminate\Support\Facades\App;
 
 /**
@@ -17,21 +17,21 @@ class AppMake
 {
     public static function User(): User
     {
-        return App::make('Model.User');
+        return App::make(User::class);
     }
 
     public static function UserRole(): UserRole
     {
-        return App::make('Model.UserRole');
+        return App::make(UserRole::class);
     }
 
     public static function Category(): Category
     {
-        return App::make('Model.Category');
+        return App::make(Category::class);
     }
 
     public static function Post(): Post
     {
-        return App::make('Model.Post');
+        return App::make(Post::class);
     }
 }

@@ -1,7 +1,7 @@
 <?php
 
-use App\AppMake;
-use App\Models\UserRole;
+use App\Domain\UserRole\UserRole;
+use App\Helpers\AppMake;
 use Illuminate\Database\Seeder;
 
 class UserRolesSeeder extends Seeder

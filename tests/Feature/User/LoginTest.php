@@ -1,18 +1,21 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests\Feature\User;
 
+use App\Helpers\TestHelper;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
-class ExampleTest extends TestCase
+class LoginTest extends TestCase
 {
+    use TestHelper;
+
     /**
      * A basic test example.
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testExample()
     {
         $this->assertTrue(true);
     }

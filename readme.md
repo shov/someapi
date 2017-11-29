@@ -1,8 +1,13 @@
-
 #Some API 🛰
 
 ###Description
-This project is an example of implementation REST API using Laravel, [JWT Auth by tymon](https://github.com/tymondesigns/jwt-auth), PHPUnit, and actually I use [Laradock](http://laradock.io/getting-started/) to make it run on my localhost with docker... As database I use MySQL in the docker container. Laradock had added as git submodule that's why u can't see it config. But same time you absolutely free to use something like Homestead to run the project. Have a nice day!
+This project is an example of implementation REST API using Laravel,
+[JWT Auth by tymon](https://github.com/tymondesigns/jwt-auth), PHPUnit, 
+and actually I use [Laradock](http://laradock.io/getting-started/) to make it run on my localhost
+with docker... As database I use MySQL in the docker container. 
+Laradock was added as git submodule that's why u can't see its config. 
+But at the same time you absolutely free to use something like Homestead to run the project. 
+Have a nice day!
 
 ###API documentation
 
@@ -46,8 +51,8 @@ STATUS 200
 STATUS 401
 User not authorized
 ```
-**If you have logged in, then for all methods witch you call you have to do two things:**
-* **For each call do set header contains your token: `Authorization: Bearer the_token_here`**
+**If you have logged in, then for all methods which you call you have to do two things:**
+* **Set the header that contains your token for each call: `Authorization: Bearer the_token_here`**
 * **For each response make the check for field named "refreshed-token" to refresh your one timely**
 
 #### Categories methods

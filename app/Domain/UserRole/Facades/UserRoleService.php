@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Facades;
+namespace App\Domain\UserRole\Facades;
 
-use App\Models\UserRole;
+use App\Domain\UserRole\UserRole;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Facade;
 
@@ -19,6 +19,6 @@ class UserRoleService extends Facade
 {
     protected static function getFacadeAccessor()
     {
-        return App::make('Service.UserRoleService');
+        return App::make(\App\Domain\UserRole\UserRoleService::class);
     }
 }

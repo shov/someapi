@@ -1,9 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace App\Services;
+namespace App\Domain\UserRole;
 
-use App\AppMake;
-use App\Models\UserRole;
+use App\Helpers\AppMake;
 
 class UserRoleService
 {
