@@ -74,11 +74,11 @@ STATUS 201
 Headers:
     Location: id_of_created_category
 
-STATUS 403
-Category with the same name already exists
-
 STATUS 401
 User not authorized, or not an admin
+
+STATUS 403
+Category with the same name already exists
 ```
 
 ##### Update category
@@ -96,14 +96,14 @@ User not authorized, or not an admin
 ```text
 STATUS 200
 
+STATUS 401
+User not authorized, or not an admin or an editor
+
 STATUS 404
 Wrong ID
 
 STATUS 403
 Category with the same name already exists 
-
-STATUS 401
-User not authorized, or not an admin or an editor
 ```
 
 ##### Delete category
@@ -114,10 +114,11 @@ User not authorized, or not an admin or an editor
 ```text
 STATUS 200
 
-STATUS 404
 
 STATUS 401
 User not authorized, or not an admin
+
+STATUS 404
 ```
 
 #### Posts methods
@@ -217,11 +218,11 @@ User not authorized
 ```text
 STATUS 200
 
-STATUS 404
-Wrong ID
-
 STATUS 401
 User not authorized, or not an admin or an editor
+
+STATUS 404
+Wrong ID
 ```
 
 ##### Delete post
@@ -232,8 +233,8 @@ User not authorized, or not an admin or an editor
 ```text
 STATUS 200
 
-STATUS 404
-
 STATUS 401
 User not authorized, or not an admin
+
+STATUS 404
 ```
