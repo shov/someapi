@@ -35,4 +35,16 @@ trait TestHelper
             'HTTP_Authorization' => 'Bearer ' . $token,
         ];
     }
+
+    /**
+     * Do user login request with given credentials or with default subscriber credentials
+     * @param array|null $creds
+     * @return string Token
+     */
+    protected function doLogin(?array $creds = null): string
+    {
+        $creds = $creds ?? \UserSeeder::USER_SEEDS['SUBSCRIBER'];
+        $response = $this->post(route("user::login"), $creds);
+        return $response->json()['token'];
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Domain\User\Facades\UserService;
 use App\Exceptions\UserAuthException;
 use App\Helpers\ControllerHelper;
+use App\Http\Middleware\AuthWithJWT;
 use Illuminate\Http\Request;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
@@ -40,6 +41,17 @@ class AuthController extends Controller
             return $this->success([
                 'token' => $token,
             ]);
+        });
+    }
+
+    public function logout()
+    {
+        return $this->wrapController(function () {
+            UserService::getAuthorizedUser();
+            UserService::logoutCurrUser();
+            AuthWithJWT::skipRefreshedToken();
+
+            return $this->success();
         });
     }
 }
