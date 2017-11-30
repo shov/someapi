@@ -4,6 +4,10 @@ namespace App\Domain\UserRole;
 
 use App\Helpers\AppMake;
 
+/**
+ * Class UserRoleService
+ * @package App\Domain\UserRole
+ */
 class UserRoleService
 {
     /**

@@ -26,7 +26,7 @@ trait ControllerHelper
     {
         if (is_null($message)) {
             if ($e instanceof ValidationException) {
-                $message = $e->validator->getMessageBag();
+                $message = (string)$e->validator->getMessageBag();
             } else {
                 $message = $e->getMessage();
             }
@@ -74,7 +74,7 @@ trait ControllerHelper
      * @param mixed|null $successSpecResult
      * @return Response
      */
-    protected function wrapController(callable $process, ?mixed $successSpecResult = null): Response
+    protected function wrapController(callable $process, $successSpecResult = null): Response
     {
         try {
             $result = $process();
@@ -103,6 +103,7 @@ trait ControllerHelper
      * Common method to build response
      * @param int $status
      * @param null|string $message
+     * @param null|\Throwable $e
      * @return Response
      */
     protected function makeResponse(int $status, ?string $message, ?\Throwable $e = null): Response

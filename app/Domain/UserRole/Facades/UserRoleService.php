@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * Class UserRoleService
- * @package App\Facades
+ * @package App\Domain\UserRole\Facades
  *
  * @method static UserRole getUserRole(string $name)
  * @method static UserRole admin()

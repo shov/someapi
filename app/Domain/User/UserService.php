@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 /**
  * Class UserService
- * @package App\Services
+ * @package App\Domain\User
  */
 class UserService
 {

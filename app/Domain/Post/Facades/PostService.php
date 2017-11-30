@@ -7,9 +7,10 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class UserService
- * @package App\Facades
+ * Class PostService
+ * @package App\Domain\Post\Facades
  * @method static Post getPost(int $id)
+ * @method static Post updatePostWithFullData(Post $post, string $header, string $content, int $categoryId)
  */
 class PostService extends Facade
 {

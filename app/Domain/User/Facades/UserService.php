@@ -9,8 +9,7 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * Class UserService
- * @package App\Facades
- *
+ * @package App\Domain\User\Facades
  * @method static null|User getUserByEmail(string $email)
  * @method static User getAuthorizedUser()
  * @method static logoutCurrUser()
