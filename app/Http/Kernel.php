@@ -3,6 +3,9 @@
 namespace App\Http;
 
 use App\Http\Middleware\AuthWithJWT;
+use App\Http\Middleware\UserRoleAdmin;
+use App\Http\Middleware\UserRoleEditorOrHigher;
+use App\Http\Middleware\UserRoleSubscriberOrHigher;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -53,6 +56,9 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'jwt.auth' => AuthWithJWT::class,
+        'role.subscriber+' => UserRoleSubscriberOrHigher::class,
+        'role.editor+' => UserRoleEditorOrHigher::class,
+        'role.admin' => UserRoleAdmin::class,
         'auth' => \Illuminate\Auth\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,

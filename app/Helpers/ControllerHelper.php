@@ -71,9 +71,10 @@ trait ControllerHelper
      * return success result from it as array or return just the Response
      *
      * @param callable $process
+     * @param mixed|null $successSpecResult
      * @return Response
      */
-    protected function wrapController(callable $process): Response
+    protected function wrapController(callable $process, ?mixed $successSpecResult = null): Response
     {
         try {
             $result = $process();
@@ -95,7 +96,7 @@ trait ControllerHelper
             return $result;
         }
 
-        return $this->success($result);
+        return $successSpecResult ?? $this->success($result);
     }
 
     /**
