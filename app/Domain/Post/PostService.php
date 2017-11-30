@@ -83,4 +83,13 @@ class PostService
         $post->save();
         return $post;
     }
+
+    /**
+     * Just delete one post
+     * @param Post $post
+     */
+    public function delete(Post $post)
+    {
+        $post->delete();
+    }
 }

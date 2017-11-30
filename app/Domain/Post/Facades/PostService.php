@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Facade;
  * @package App\Domain\Post\Facades
  * @method static Post getPost(int $id)
  * @method static Post updatePostWithFullData(Post $post, string $header, string $content, int $categoryId)
+ * @method static delete(Post $post)
  */
 class PostService extends Facade
 {

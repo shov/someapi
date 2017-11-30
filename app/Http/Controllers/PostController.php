@@ -3,11 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Domain\Post\Facades\PostService;
-use App\Domain\User\Facades\UserService;
-use App\Domain\UserRole\Facades\UserRoleService;
-use App\Exceptions\EntityNotFoundException;
-use App\Exceptions\UserAuthException;
-use App\Helpers\AppMake;
 use App\Helpers\ControllerHelper;
 use Illuminate\Http\Request;
 
@@ -52,6 +47,18 @@ class PostController extends Controller
                 $newData['header'],
                 $newData['content'],
                 (int)$newData['category-id']);
+
+            return $this->success();
+        });
+    }
+
+    public function delete(Request $request, $id)
+    {
+        return $this->wrapController(function () use ($request, $id) {
+
+            $postToDelete = PostService::getPost($id);
+
+            PostService::delete($postToDelete);
 
             return $this->success();
         });
