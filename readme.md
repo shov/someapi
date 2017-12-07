@@ -1,6 +1,6 @@
-#Some API 🛰
+# Some API 🛰
 
-###Description
+### Description
 This project is an example of implementation REST API using Laravel,
 [JWT Auth by tymon](https://github.com/tymondesigns/jwt-auth), PHPUnit, 
 and actually I use [Laradock](http://laradock.io/getting-started/) to make it run on my localhost
@@ -9,9 +9,9 @@ Laradock was added as git submodule that's why u can't see its config.
 But at the same time you absolutely free to use something like Homestead to run the project. 
 Have a nice day!
 
-###API documentation
+### API documentation
 
-####Users methods
+#### Users methods
 ##### Login
 `POST /login`
 
